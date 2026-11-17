@@ -1,0 +1,10 @@
+{
+  "name": "EOS clock diagnostics",
+  "build": { "dockerfile": "Dockerfile", "context": ".." },
+  "workspaceMount": "source=${localWorkspaceFolder},target=/workspaces/EOS-MCP-Test,type=bind",
+  "workspaceFolder": "/workspaces/EOS-MCP-Test",
+  "remoteUser": "node",
+  "runArgs": ["--cap-drop=ALL", "--security-opt=no-new-privileges"],
+  "postCreateCommand": "python scripts/collect.py --inventory inventory/example.yml --target TOR-F2-Leaf2 --target TOR-F2-Leaf1",
+  "customizations": { "vscode": { "extensions": ["ms-python.python", "redhat.vscode-yaml"] } }
+}

@@ -1,0 +1,15 @@
+version: 1
+inventory: /workspaces/EOS-MCP-Test/inventory/local.yml
+# Uncomment after installing the CA certificate locally:
+# caFile: /workspaces/EOS-MCP-Test/.secrets/network-ca.pem
+readTimeoutMs: 10000
+overallOperationTimeoutMs: 30000
+deviceConcurrency: 1
+diagnostics:
+  deviceConcurrency: 1
+readFanOut: 2
+maxReadTargets: 5
+maxShowCommandsPerRequest: 5
+maxLoggingMessagesPerRequest: 200
+maxResponseSizeBytes: 1048576
+privilegedShowCommands: []

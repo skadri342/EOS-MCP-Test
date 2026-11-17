@@ -1,0 +1,12 @@
+.secrets/
+reports/
+inventory/local.yml
+config/eos-mcp.local.yml
+.codex/
+.env
+.env.*
+!.env.example
+__pycache__/
+*.py[cod]
+.venv/
+.DS_Store

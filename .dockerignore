@@ -1,0 +1,8 @@
+.git
+.secrets
+reports
+.codex
+.env*
+inventory/local.yml
+config/eos-mcp.local.yml
+__pycache__

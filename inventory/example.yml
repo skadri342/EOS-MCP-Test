@@ -1,0 +1,34 @@
+# Ansible-style inventory, also consumable by the EOS MCP server.
+# Copy to local.yml; replace documentation addresses before connecting.
+all:
+  children:
+    eos:
+      vars:
+        ansible_network_os: eos
+        ansible_user: clockdiag
+        mcp_password_env: EOS_MCP_PASSWORD
+        mcp_validate_certs: true
+        mcp_read_allowed: true
+        mcp_diagnostics_allowed: false
+        mcp_packet_capture_allowed: false
+      hosts:
+        TOR-F2-Leaf2:
+          ansible_host: 192.0.2.12
+          # mcp_password_env: EOS_MCP_LEAF2_PASSWORD
+        TOR-F2-Leaf1:
+          ansible_host: 192.0.2.11
+    cvp:
+      vars:
+        ansible_network_os: linux
+        ansible_user: clockdiag
+        ansible_ssh_private_key_file: .secrets/cvp_ed25519
+        known_hosts_file: .secrets/known_hosts
+      hosts:
+        cvp1:
+          ansible_host: 192.0.2.21
+          # Add cvp2/cvp3 individually if this VM belongs to a cluster.
+    time_servers:
+      # Reference data only: never contacted by this collector or EOS MCP.
+      hosts:
+        ntp1:
+          ansible_host: 192.0.2.123

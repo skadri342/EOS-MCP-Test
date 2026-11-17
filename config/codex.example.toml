@@ -1,0 +1,7 @@
+# Merge into .codex/config.toml in a trusted project INSIDE the container.
+# This is a template, not an active configuration for the current session.
+[mcp_servers.eos]
+command = "eos-mcp-server"
+args = ["serve", "--config", "/workspaces/EOS-MCP-Test/config/eos-mcp.local.yml"]
+env_vars = ["EOS_MCP_PASSWORD"]
+# Add per-device variable names here if the inventory uses them.
